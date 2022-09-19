@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div = "Container">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-sm-12 col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <h4 class="py-2 px-5"> Enter Required Values</h4>
+                <p class="py-1 px-5"> Enter different factors value according to your soil report ( Crop/Farming Land)</ph3>
+
+                <form class="mx-1 mx-md-4"  method="POST" enctype="multipart/form-data" action='predict' >
+                  {% csrf_token %}
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="N" value="" id="N" class="form-control" placeholder= '0 - 140'  >
+                      <label class="form-label" for="form3Example1c">Nitrogen</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="P" value="" id="P" class="form-control"  placeholder= '5 - 145'>
+                      <label class="form-label" for="form3Example3c">Phosphorus</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="K" value="" id="form3Example3c" class="form-control" placeholder= '5 - 205' >
+                      <label class="form-label" for="form3Example3c">Potassuim</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="temperature" value=""  name="P" value="" id="form3Example3c" class="form-control" placeholder= '0 - 45' >
+                      <label class="form-label" for="form3Example3c">Temperature</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="humidity" value=""  name="P" value="" id="form3Example3c" class="form-control" placeholder= '14 - 100' >
+                      <label class="form-label" for="form3Example3c">Humidity</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="ph" value=""  name="P" value="" id="form3Example3c" class="form-control" placeholder= '3.5 - 9.9' >
+                      <label class="form-label" for="form3Example3c">ph</label>
+                    </div>
+                  </div>
+
+              
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="rainfall" value=""  name="P" value="" id="form3Example3c" class="form-control" placeholder= '20 - 298' >
+                      <label class="form-label" for="form3Example3c">Rainfall</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary" py-4>Submit</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+                  <div class="card">
+                    
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+       
+        </div
+      </div>
+    </div>
+  </div>
+
+  <div class="card text-center">
+    <div class="card-header">
+      Featured  
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Best Crop Predicted</h5>
+      <h5 class="card-title">{{PredictedCrop}}</h5>
+      
+      <p class="card-text">According to details provided by Machine learning models takes all values as input to model and it compares your provided information with many different case studies and ther research available and then predict best one suits to you </p>
+      <a href="/form" class="btn btn-primary">Revaluate Different Values</a>
+    </div>
+    <div class="card-footer text-muted">
+       Last Updated - 2 days ago
+    </div>
+  </div>
+ 
+
+
+
+</div>
+  {% endblock body %}
